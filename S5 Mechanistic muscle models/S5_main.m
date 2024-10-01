@@ -63,8 +63,8 @@ parms.CB.xi = -5:.01:5; % normalized strain vector
 
 % [EDIT START]
 % Adjust the crossbridge rate constants, assuming that parms.CB.g(1) = parms.CB.f
-parms.CB.f = 1000*rand(1);
-parms.CB.g = [parms.CB.f 1000*rand(1) 1000*rand(1)]; 
+parms.CB.f = 558;      % attachment rate
+parms.CB.g = [parms.CB.f 2000 5]; 
 % [EDIT STOP]
 
 % code below evaluates and plots the results
@@ -159,8 +159,8 @@ end
 % influence the force-velocity relation?
 
 % [EDIT START]                       
-parms.CB.f = 1000*rand(1);
-parms.CB.g = [parms.CB.f 1000*rand(1) 1000*rand(1)]; 
+parms.CB.f = 558;
+parms.CB.g = [parms.CB.f 2000 5]; 
 % [EDIT STOP]
 
 % calculate CB force velocity
@@ -222,8 +222,8 @@ end
 % approximated model?
 
 % [EDIT START]                       
-parms.CB.f = 1000*rand(1);
-parms.CB.g = [parms.CB.f 1000*rand(1) 1000*rand(1)]; 
+parms.CB.f = 400;
+parms.CB.g = [parms.CB.f 2000 -50]; 
 % [EDIT STOP]
 
 % calculate DM model force-velocity
@@ -275,9 +275,9 @@ color = get(gca,'colororder');
 
 % [EDIT START]
 % choose a isokinetic velocity
-omega_knee = 1000*rand(1); % imposed angular velocity [deg/s]
-parms.CB.f = 1000*rand(1);
-parms.CB.g = [parms.CB.f 1000*rand(1) 1000*rand(1)]; 
+omega_knee = 1000; % imposed angular velocity [deg/s], 
+parms.CB.f = 400;
+parms.CB.g = [parms.CB.f 2000 -50]; 
 % [EDIT STOP]
 
 % conditions

@@ -1,7 +1,7 @@
 # S5 Mechanistic muscle models
 
 This hands-on tutorial is an introduction into mechanistic muscle models. 
-In the tutorial, you will compare the 2-state crossbridge model of [Huxley (1957)](https://pubmed.ncbi.nlm.nih.gov/13485191/) to existing phenomenological Hill-type muscle models (used in PredSim & OpenSim). While mechanistic crossbridge models have not yet been incoorporated into the PredSim framework (this is work in progress), this tutorial provides custom code to run forward simulations with these models. The mechanistic muscle modeling framework is based on [van der Zee et al., (2024)](https://doi.org/10.1242/jeb.247436), and the associated [CaFaXC muscle model](https://github.com/timvanderzee/CaFaXC). 
+In the tutorial, you will compare the 2-state crossbridge model of [Huxley (1957)](https://pubmed.ncbi.nlm.nih.gov/13485191/) to existing phenomenological Hill-type muscle models (used in PredSim & OpenSim). While mechanistic crossbridge models have not yet been incorporated into the PredSim framework (this is work in progress), this tutorial provides custom code to run forward simulations with these models. The mechanistic muscle modelling framework is based on [van der Zee et al., (2024)](https://doi.org/10.1242/jeb.247436), and the associated [CaFaXC muscle model](https://github.com/timvanderzee/CaFaXC). 
 
 ## Background
 Crossbridges are the molecular motors underlying muscle contraction, force production and energy consumption. 

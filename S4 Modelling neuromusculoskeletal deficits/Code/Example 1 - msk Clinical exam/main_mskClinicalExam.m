@@ -9,12 +9,12 @@
 % Original authors: Bram Van Den Bosch, Ellis Van Can
 % Original date: September 20,2024
 
-clc; clear; close all
+clc; clear; 
 %% 1. Add paths 
 
 % ------- start edit -------
-PredSim_path = 'C:\GBW_MyPrograms\PredSim'; % path to PredSim
-Seminar_path = 'C:\GBW_MyPrograms\PredSim-workshop-bcn-2024\S4 Modelling neuromusculoskeletal deficits'; % path to Seminar code
+PredSim_path = 'C:\Users\lingh\OneDrive - KTH\ExMaterials\7-Doctor\Research\2-simulation'; % path to PredSim
+Seminar_path = 'C:\Users\lingh\OneDrive - KTH\ExMaterials\7-Doctor\Research\2-workshop\S4 Modelling neuromusculoskeletal deficits'; % path to Seminar code
 % ------- stop edit -------
 
 addpath(genpath(PredSim_path));
@@ -56,16 +56,16 @@ osim_path = fullfile(Seminar_path,'Models',subject_name,[subject_name,'_PredSim.
 % ------- start edit -------
 
 S.settings.muscle_strength = {...       
-    {'glut_max_r'},1,...                % R_hip_ext
+    {'glut_max_r'},0.7,...                % R_hip_ext
     {'iliopsoas_r'},1,...               % R_hip_flex    
-    {'rect_fem_r' 'vasti_r'},1,...      % R_knee_ext
-    {'hamstrings_r' 'bifemsh_r'},1,...  % R_knee_bend
-    {'gastroc_r' 'soleus_r'},1,...      % R_ankle_pf
-    {'tib_ant_r'},1,...                 % R_ankle_df
-    {'glut_max_l'},1,...                % L_hip_ext
+    {'rect_fem_r' 'vasti_r'},0.7,...      % R_knee_ext
+    {'hamstrings_r' 'bifemsh_r'},0.7,...  % R_knee_bend
+    {'gastroc_r' 'soleus_r'},0.7,...      % R_ankle_pf
+    {'tib_ant_r'},0.7,...                 % R_ankle_df
+    {'glut_max_l'},0.7,...                % L_hip_ext
     {'iliopsoas_l'},1,...               % L_hip_flex    
-    {'rect_fem_l' 'vasti_l'},1,...      % L_knee_ext
-    {'hamstrings_l' 'bifemsh_l'},1,...  % L_knee_bend
+    {'rect_fem_l' 'vasti_l'},0.7,...      % L_knee_ext
+    {'hamstrings_l' 'bifemsh_l'},0.7,...  % L_knee_bend
     {'gastroc_l' 'soleus_l'},1,...      % L_ankle_pf
     {'tib_ant_l'},1};                   % L_ankle_df
 
@@ -90,7 +90,30 @@ S.settings.muscle_strength = {...
 
 muscle_toScale = 'soleus'; % Options: 'soleus', 'gastrocnemii', % hamstrings
 side = 'r'; % Options: 'l', 'r' 
-CE_angle = 10 ; % Passive ROM angle Clinical Exam
+CE_angle = 0 ; % Passive ROM angle Clinical Exam
+
+% muscle_toScale = 'Gastrocnemii '; % Options: 'soleus', 'gastrocnemii', % hamstrings
+% side = 'r'; % Options: 'l', 'r' 
+% CE_angle = -5 ; % Passive ROM angle Clinical Exam
+% 
+% muscle_toScale = 'hamstrings '; % Options: 'soleus', 'gastrocnemii', % hamstrings
+% side = 'r'; % Options: 'l', 'r' 
+% CE_angle = -65 ; % Passive ROM angle Clinical Exam
+% 
+% 
+% 
+% muscle_toScale = 'soleus'; % Options: 'soleus', 'gastrocnemii', % hamstrings
+% side = 'l'; % Options: 'l', 'r' 
+% CE_angle = 15 ; % Passive ROM angle Clinical Exam
+% 
+% muscle_toScale = 'Gastrocnemii '; % Options: 'soleus', 'gastrocnemii', % hamstrings
+% side = 'l'; % Options: 'l', 'r' 
+% CE_angle = 10 ; % Passive ROM angle Clinical Exam
+% 
+% muscle_toScale = 'hamstrings '; % Options: 'soleus', 'gastrocnemii', % hamstrings
+% side = 'l'; % Options: 'l', 'r' 
+% CE_angle = -65 ; % Passive ROM angle Clinical Exam
+
 
 % ------- stop edit -------
 
@@ -168,13 +191,13 @@ end
 % ------- start edit -------
 
 % Define scaling factor range
-sf_lMo = flip([0.8:0.05:0.95]); 
+sf_lMo = flip([0.836:0.001:0.84]); 
 
 % ------- stop edit -------
 
 
 % Loop that evaluates the scaling factors
-close all % close previous figs
+% close all % close previous figs
 for j = 1:length(sf_lMo)
     if strcmp(muscle_toScale,'soleus')
         scale.subject.scale_MT_params = {{['soleus_',side]},'lMo',sf_lMo(j)};
@@ -294,7 +317,7 @@ legend
 
 %% 5. Define your estimated muscle fiber scaling factors for PredSim
 % ------- start edit -------
-S.subject.scale_MT_params = {{'soleus_r'},'lMo',1,...
+S.subject.scale_MT_params = {{'soleus_r'},'lMo',0.83,...
                              {'gastroc_r'},'lMo',1,...
                              {'hamstrings_r'},'lMo',1,...
                               {'soleus_l'},'lMo',1,...
